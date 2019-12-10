@@ -5,14 +5,11 @@
 const array = [1, 2, 5, 9, 4, 13, 4, 10];
 
 function checkArr(array) {
-    let i = 0;
-
-    for (i; true; i++) {
-        if (array[i]!==undefined) {
-            if (array[i]===4) {
-                console.log("Есть!"); break;
-            }
-        } else break;
+    for (let i=0;i<array.length;i++) {
+        console.log(array[i]);
+        if (array[i]===4) {
+            console.log("Есть!"); 
+        }
     }
 }
 checkArr(array);

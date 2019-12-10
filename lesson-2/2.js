@@ -13,12 +13,10 @@ if (login == 'Pitter') {
 }
 */
 
-let message;
-
-(login == 'Pitter') ? message = 'Hi' :
-    (login == 'Owner') ? message = 'Hello' :
-        (login == '') ? message = 'unknown' : message = '';
-
+let message = 
+(login == 'Pitter') ? 'Hi' :
+    (login == 'Owner') ? 'Hello' :
+        (login == '') ? 'unknown' : message = '';
 /*
 let message;
 let login;

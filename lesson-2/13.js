@@ -4,7 +4,8 @@
 Использовать встроенные методы массивов - нельзя */
 
 const n = 1000;
-let result = num = 0;
+let result = 0;
+let num = 0;
 
 function checkN(n) {
     let i = 0;
