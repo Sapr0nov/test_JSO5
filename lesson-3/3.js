@@ -22,6 +22,6 @@ function truncate(string, maxLength) {
         ? `${string.slice(0,maxLength-3)}...`
         : string;
 }
-truncate('Вот, что мне хотелось бы сказать на эту тему:', 21)); // 'Вот, что мне хотел...'
+truncate('Вот, что мне хотелось бы сказать на эту тему:', 21); // 'Вот, что мне хотел...'
 
 exports.truncate = truncate;
