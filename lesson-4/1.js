@@ -12,7 +12,21 @@
 const person = {};
 
 // Решение
+Object.defineProperty(person, "salary", {
+    get: function() {
+        const now = new Date()
+        const daysinMonth = 33 - new Date(now.getFullYear(), now.getMonth(), 33).getDate();
 
-person.salary; // good salary
+        if ( (daysinMonth - now.getMonth()) > 20) {
+       
+            return 'good salary'}
+        else {
+       
+            return 'bad salary';
+        }
+    }
+});
+
+person.salary; // bad salary
 
 exports.person = person;
