@@ -23,29 +23,20 @@ const person = {};
 Object.defineProperties(person, {
     'rate': {
         writable: true
-//      configurable: false
-//      enumerable: false
     },
     'salary': {
-        configurable: true,
         get: function() {
-            const now = new Date()
-            const daysinMonth = 33 - new Date(now.getFullYear(), now.getMonth(), 33).getDate();
+            const dayInMonth = new Date().getDate();
 
-            if ( (daysinMonth - now.getMonth()) > 20) {
-        
-                return 'good salary'}
-            else {
-        
-                return 'bad salary';
-            }
+            return this.rate * dayInMonth;   
         }
     }
 });
 
 person.rate = 30;
 
-// Предположим что сегодня 10 января, в этом случае это свойство возвращает число 300
 person.salary;
+// Предположим что сегодня 10 января, в этом случае это свойство возвращает число 300
+
 
 exports.person = person;
