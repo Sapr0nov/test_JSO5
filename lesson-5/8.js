@@ -16,10 +16,34 @@
  */
 
 // Решение
+function validateArray(arr) {
+    if (!Array.isArray(arr)) {
+        throw new Error('The argument is not an Array.');
+    }
+}
+function validateArrayNull(arr) {
+    if (arr.length === 0) {
+        throw new Error('The argument less than 0.');
+    }
+}
+
+function f(arr) {
+    validateArray(arr);
+    validateArrayNull(arr);
+    let result = arr.pop();
+
+    if (arr.length > 0) {
+        f(arr);
+    }
+
+    console.log(result);
+}
+
 
 f([1, 2, 3]);
 // 1
 // 2
 // 3
+
 
 exports.f = f;

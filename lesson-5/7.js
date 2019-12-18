@@ -10,6 +10,27 @@
  */
 
 // Решение
+function validateNumber(n) {
+    if (typeof n !== 'number') {
+        throw new Error('The argument is not a Number.');
+    }
+}
+function validatePositive(n) {
+    if (n < 0) {
+        throw new Error('The argument less than 0.');
+    }
+}
+function getDivisors(num) {
+    validateNumber(num);
+    validatePositive(num);
+    let result = [];
+
+    for (let i=1; i<=num; i++) {
+        if ( num%i === 0 ) { result.push(i); }
+    }
+
+    return result;
+}
 
 getDivisors(12); // [1, 2, 3, 4, 6, 12]
 

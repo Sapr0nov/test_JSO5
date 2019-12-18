@@ -11,6 +11,18 @@
  */
 
 // Решение
+function validateNumber(n) {
+    if (typeof n !== 'number') {
+        throw new Error('The argument is not a Number.');
+    }
+}
+
+function isEven(num) {
+    validateNumber(num);
+    const result = Boolean( num%2 === 0); 
+
+    return result;
+}
 
 isEven(3); // false
 isEven(4); // true

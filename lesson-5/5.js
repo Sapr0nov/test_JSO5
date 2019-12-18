@@ -19,7 +19,7 @@ function validateNumber(n) {
 
 function isPositive(num) {
     validateNumber(num);
-    const result = Boolean(num>0); 
+    const result = Boolean( num > 0 ); 
 
     return result;
 }
