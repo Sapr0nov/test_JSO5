@@ -11,6 +11,18 @@
  */
 
 // Решение
+function validateNumber(n) {
+    if (typeof n !== 'number') {
+        throw new Error('The argument is not a Number.');
+    }
+}
+
+function isPositive(num) {
+    validateNumber(num);
+    const result = Boolean(num>0); 
+
+    return result;
+}
 
 isPositive(-3); // false
 isPositive(3); // true
