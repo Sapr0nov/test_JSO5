@@ -30,6 +30,43 @@ const  validateArrayNumber = function(n) {
     }
 }
 
+
+const reducer = function(acc, curr) {
+    validateArrayNumber(curr);
+    if (Array.isArray(curr) ) {
+        return acc.concat(flat(curr));
+    }
+    return acc.concat(curr);
+}
+
+const summer = function (acc, curr) {
+    validateArrayNumber(curr);
+    const result = acc + curr;
+
+    return result;
+}
+
+const flat = function (arr) {
+    const pre_result = arr.reduce(reducer, []);
+    let result = 0;
+    if (pre_result.length > 0) {
+      result  = pre_result.reduce(summer);
+    }
+
+    return result;
+}
+
+
+const collect = function(array) {
+    validateArray(array);
+    const result = flat(array);
+ 
+    return result;
+
+}
+
+/* Вариант до рефакторинга */
+/*
 const collect = function(array) {
     let result = 0;
     validateArray(array);
@@ -63,8 +100,6 @@ const collect = function(array) {
         return result += 0;
     }
 
-    // сразу раскрывать одиночные массивы?
-    // переписать сначала спредом ? фильтром?
     if (Array.isArray(array) ) {
 
         return result = collect([0, ...array]);
@@ -73,7 +108,7 @@ const collect = function(array) {
         return result = array;
     }
 }
-
+*/
 const array1 = [[[1, 2], [1, 2]], [[2, 1], [1, 2]]];
 console.log(collect(array1)); // 12
 

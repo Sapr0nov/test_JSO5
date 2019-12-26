@@ -11,10 +11,21 @@
  */
 
 // Решение
-function validateNumber(n) {
-    if (typeof n !== 'Number') {
+validateNumStrObjArr = function(n){
+    if ( !( ['number','object','string'].includes(typeof n) || Array.isArray(n) ) ) {
+        throw new Error('The argument is not a Number, Object, String or Array.');
+    }
+}
+validateNumber = function(n) {
+    if (typeof n !== 'number') {
         throw new Error('The argument is not a Number.');
     }
+}
+createArray = function(arg1, arg2) {
+    validateNumStrObjArr(arg1);
+    validateNumber(arg2);
+
+    return new Array(arg2).fill(arg1);
 }
 
 const result = createArray('x', 5);
