@@ -20,18 +20,18 @@ const array = [1, 2, 3, 4, 5];
 const INITIAL_ACCUMULATOR = 6;
 
 // Решение
-function validateArray(n) {
+const validateArray = function(n) {
     if (!Array.isArray(n)) {
         throw new Error('The argument is not a Array.');
     }
 }
-function validateFunction(n) {
+const validateFunction = function(n) {
     if (typeof n !== 'function') {
         throw new Error('The argument is not a Function.');
     }
 }
 
-function reduce(arr, func, start) {
+const reduce = function(arr, func, start) {
     validateArray(arr);
     validateFunction(func);
     const arrLength = arr.length;

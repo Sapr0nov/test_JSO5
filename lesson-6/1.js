@@ -19,18 +19,18 @@
 const array = [1, 2, 3];
 
 // Решение
-function validateArray(n) {
+const validateArray = function(n) {
     if (!Array.isArray(n)) {
         throw new Error('The argument is not a Array.');
     }
 }
-function validateFunction(n) {
+const validateFunction = function(n) {
     if (typeof n !== 'function') {
         throw new Error('The argument is not a Function.');
     }
 }
 
-function forEach(arr, func) {
+const forEach = function(arr, func) {
     validateArray(arr);
     validateFunction(func);
     const arrLength = arr.length;

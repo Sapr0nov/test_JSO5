@@ -14,7 +14,7 @@ const person = {};
 // Решение
 Object.defineProperty(person, "salary", {
     get: function() {
-        const now = new Date()
+        const now = new Date();
         const daysinMonth = 33 - new Date(now.getFullYear(), now.getMonth(), 33).getDate();
 
         if ( (daysinMonth - now.getMonth()) > 20) {

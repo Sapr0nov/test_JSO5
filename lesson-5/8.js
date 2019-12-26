@@ -30,7 +30,7 @@ function validateArrayNull(arr) {
 function f(arr) {
     validateArray(arr);
     validateArrayNull(arr);
-    let result = arr.pop();
+    const result = arr.pop();
 
     if (arr.length > 0) {
         f(arr);

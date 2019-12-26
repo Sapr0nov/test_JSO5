@@ -19,18 +19,18 @@
 const array = ['Доброе утро!', 'Добрый вечер!', 3, 512, '#', 'До свидания!'];
 
 // Решение
-function validateArray(n) {
+const validateArray = function(n) {
     if (!Array.isArray(n)) {
         throw new Error('The argument is not a Array.');
     }
 }
-function validateFunction(n) {
+const validateFunction = function(n) {
     if (typeof n !== 'function') {
         throw new Error('The argument is not a Function.');
     }
 }
 
-function filter(arr, func) {
+const filter = function(arr, func) {
     validateArray(arr);
     validateFunction(func);
     const arrLength = arr.length;

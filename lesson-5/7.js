@@ -23,10 +23,12 @@ function validatePositive(n) {
 function getDivisors(num) {
     validateNumber(num);
     validatePositive(num);
-    let result = [];
+    const result = [];
 
     for (let i=1; i<=num; i++) {
-        if ( num%i === 0 ) { result.push(i); }
+        if ( num%i === 0 ) {
+             result.push(i); 
+        }
     }
 
     return result;

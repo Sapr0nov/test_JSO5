@@ -21,10 +21,15 @@ const person = {};
 // Решение
 
 Object.defineProperties(person, {
-    'rate': {
-        writable: true
+    rate: {
+        value: 0,
+        writable: true,
+        enumerable: false,
+        configurable: false
     },
-    'salary': {
+    salary: {
+        enumerable: false,
+        configurable: false,
         get: function() {
             const dayInMonth = new Date().getDate();
 

@@ -19,7 +19,7 @@ function validateNumber(n) {
 
 function isEven(num) {
     validateNumber(num);
-    const result = Boolean( num%2 === 0); 
+    const result = num%2 === 0; 
 
     return result;
 }

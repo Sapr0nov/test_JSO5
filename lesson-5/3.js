@@ -10,7 +10,7 @@
 // Решение
 
 function validateNumbers(args) {
-    for (arg of args) {
+    for (const arg of args) {
         if (typeof arg !== 'number') {
             throw new Error(`One from parameters is not a Number. [${arg}]`);
         }  
@@ -19,7 +19,7 @@ function validateNumbers(args) {
 
 function validateNotZero(param) {
     if (!param) {
-            throw new Error(`One from parameters is not a Number. [${param}]`);
+            throw new Error(`One from parameters is not a Zero. [${param}]`);
     }  
 }
 

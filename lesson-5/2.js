@@ -11,7 +11,7 @@
 // Решение
 
 function validateNumbers(args) {
-    for (arg of args) {
+    for (const arg of args) {
         if (typeof arg !== 'number') {
             throw new Error(`One from parameters is not a Number. ${arg}`);
         }  
@@ -22,11 +22,11 @@ function f() {
     validateNumbers(arguments);
     let result = 0;
     
-    for (arg of arguments) {
+    for (const arg of arguments) {
         result += arg;
     }
 
-    return results;
+    return result;
 }
 
 console.log(f(1, 1, 1, 2, 1, 1, 1, 1)); // 9

@@ -34,7 +34,8 @@ function validateInterval(param,start,stop) {
 function f(num) {
     validateNumber(num);
     validateInterval(num,1,7);
-    const days = ['','Воскресенье','Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
+    const days = ['Воскресенье','Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
+    num--;
     const result = days[num];
 
     return result;
