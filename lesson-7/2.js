@@ -30,7 +30,6 @@ const  validateArrayNumber = function(n) {
     }
 }
 
-
 const reducer = function(acc, curr) {
     validateArrayNumber(curr);
     if (Array.isArray(curr) ) {
@@ -40,7 +39,6 @@ const reducer = function(acc, curr) {
 }
 
 const summer = function (acc, curr) {
-    validateArrayNumber(curr);
     const result = acc + curr;
 
     return result;
@@ -56,13 +54,11 @@ const flat = function (arr) {
     return result;
 }
 
-
 const collect = function(array) {
     validateArray(array);
     const result = flat(array);
  
     return result;
-
 }
 
 /* Вариант до рефакторинга */
