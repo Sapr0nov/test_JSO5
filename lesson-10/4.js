@@ -1,3 +1,4 @@
+'use strict'
 /**
  * Задача 4.
  *
@@ -27,10 +28,13 @@
  */
 
 // Решение
-const  validateFunction = function(n) {
-    if (typeof n !== 'function') {
-        throw new Error(`The argument ${n} (${typeof n}) is not a Function.`);
-    }
+
+const  validateFunctions = function(arr) {
+    arr.forEach(func => {
+        if (typeof func !== 'function') {
+            throw new Error(`The argument ${n} (${typeof n}) is not a Function.`);
+        }
+    })
 }
 const  validateUndefined = function(n) {
     if (typeof n === 'undefined') {
@@ -39,12 +43,13 @@ const  validateUndefined = function(n) {
 }
 
 const compose = (...rest) => {
+    validateFunctions(rest);
+
     return (arg='') => 
     {
         let result=arg;
 
         rest.reverse().forEach(func => {
-            validateFunction(func);
             result = func(result);
             validateUndefined(result);
         })
