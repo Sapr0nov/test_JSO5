@@ -27,10 +27,12 @@ const createNumberGenerator = () => {
 
     return () => {
         number--;
+
         if (number < 1 ) 
         {
             throw new Error('All (100) numbers is printed!');
         }
+
         const numberElement = Math.floor(Math.random() * Math.floor(number));
         const result = numbersArr.splice(numberElement, 1);
         

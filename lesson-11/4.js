@@ -29,9 +29,11 @@
 
 // Решение
 const validateFunction = function(func) {
+
     if (typeof func !== 'function') {
         throw new Error(`It's not Function: ${func}`);
     }
+
 }
 
 const createLogger = () => {
@@ -40,7 +42,12 @@ const createLogger = () => {
         call: (func, ...args) => {
             validateFunction(func);
             const result = func.apply(this,args);
-            arrLog.push({name:func.name,in:args,out:result});
+            
+            arrLog.push({
+                name:func.name,
+                in:args,
+                out:result
+            });
             
             return result;
         },
