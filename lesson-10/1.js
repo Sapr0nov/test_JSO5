@@ -22,26 +22,26 @@
  */
 
 // Решение
-const  validateNotArray = function(n) {
+const  validateNotArray = function(n,text) {
     if (Array.isArray(n)) {
-        throw new Error(`The argument ${n} (${typeof n}) is a Array. Must be object.`);
+        throw new Error(`The argument ${n} is a Array. (${text}) Must be object.`);
     }
 }
-const  validateFunction = function(n) {
+const  validateFunction = function(n,text) {
     if (typeof n !== 'function') {
-        throw new Error(`The argument ${n} (${typeof n}) is not a Function.`);
+        throw new Error(`The argument ${n} (${text}) is not a Function.`);
     }
 }
 const  validateObject = function(n) {
     if  (typeof n !== 'object'){
-        throw new Error(`The argument ${n} (${typeof n}) is not a Object.`);
+        throw new Error(`The argument ${n} (${text}) is not a Object.`);
     }
 }
 
 const bind = function(func, thisObj, ...rest) {
-    validateFunction(func);
-    validateNotArray(thisObj); 
-    validateObject(thisObj);
+    validateFunction(func,'finction bind, first argument');
+    validateNotArray(thisObj,'finction bind, second argument'); 
+    validateObject(thisObj,'finction bind, second argument');
 
     return ()=> func.apply(thisObj, rest);
 }

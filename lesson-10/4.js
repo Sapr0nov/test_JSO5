@@ -30,11 +30,11 @@
 // Решение
 
 const  validateFunctions = function(arr) {
-    arr.forEach(func => {
-        if (typeof func !== 'function') {
-            throw new Error(`The argument ${n} (${typeof n}) is not a Function.`);
+    for (let i=0; i < arr.length; i ++) {
+        if (typeof arr[i] !== 'function') {
+            throw new Error(`The argument ${arr[i]} (${typeof arr[i]}) is not a Function.`);
         }
-    })
+    }
 }
 const  validateUndefined = function(n) {
     if (typeof n === 'undefined') {

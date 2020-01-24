@@ -36,12 +36,11 @@ const  validateUndefined = function(n) {
 }
 
 const calculateAdvanced = (...rest)=> {
-    let i=0; 
     let res=0;
     let result=0;
     let errors = [];
     
-    rest.forEach(func => {
+    rest.forEach((func,index) => {
         validateFunction(func);
         try {
             res = func(result);
@@ -52,12 +51,12 @@ const calculateAdvanced = (...rest)=> {
             res = result;
             if (err.name==='Error') 
             {
-                err.message = `callback at index ${i} did not return any value.`; 
+                err.message = `callback at index ${index} did not return any value.`; 
             }
-            errors.push({index: i, name:err.name, message:err.message });
+            errors.push({index: index, name:err.name, message:err.message });
         }
+
         result = res ? res : result;
-        i++;
     })
     
     return {'value' : result, 'errors' : errors};
