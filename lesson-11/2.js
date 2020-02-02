@@ -14,6 +14,7 @@
 
 const createFibonacciGenerator = () => {
     let arr = [0,1];
+
     return () => {
         arr.push(arr[0]+arr[1]);
         arr.shift();

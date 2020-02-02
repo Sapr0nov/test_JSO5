@@ -20,22 +20,29 @@ const validateObject = function(obj) {
         throw new Error(`It's not Object: ${obj}`);
     }
 }
+const copyPropertes = (result, data, key) => {
+    const propsObject = Object.getOwnPropertyDescriptor(data, key);
+    
+    Object.defineProperty(result, key, 
+    {
+        value: data[key],
+        configurable: propsObject.configurable,
+        writable: propsObject.writable,
+        enumerable: propsObject.enumerable
+    });
+
+    return result;
+}
 
 const shallowMerge = function(user, userData) {
     validateObject(user);
     validateObject(userData);
     let result = {};
-
     const keysUserData = Object.getOwnPropertyNames(userData);
+
     keysUserData.forEach(key => 
     {
-        Object.defineProperty(result, key, 
-        {
-            value: userData[key],
-            configurable: Object.getOwnPropertyDescriptor(userData, key).configurable,
-            writable: Object.getOwnPropertyDescriptor(userData, key).writable,
-            enumerable: Object.getOwnPropertyDescriptor(userData, key).enumerable
-        });
+        result = copyPropertes(result, userData, key);
     });
 
     const keysUser = Object.getOwnPropertyNames(user);
@@ -45,13 +52,7 @@ const shallowMerge = function(user, userData) {
 
             return;
         }
-            Object.defineProperty(result, key, 
-            {
-                value: user[key],
-                configurable: Object.getOwnPropertyDescriptor(user, key).configurable,
-                writable: Object.getOwnPropertyDescriptor(user, key).writable,
-                enumerable: Object.getOwnPropertyDescriptor(user, key).enumerable
-            });
+        result = copyPropertes(result, user, key);
     });
 
     return result;

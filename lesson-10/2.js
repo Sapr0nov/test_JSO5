@@ -31,11 +31,17 @@ const  validateUndefined = function(n) {
 }
 
 const calculate = (...rest)=> {
-    let result;
-    
-    rest.forEach(func => {
+    let result='';
+
+    rest.forEach((func,index) => {
         validateFunction(func);
-        result = func(result);
+        if (index > 0)
+        {
+            result = func(result);
+        }
+        else{
+            result = func();
+        }
         validateUndefined(result);
     })
     
