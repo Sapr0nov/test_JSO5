@@ -18,14 +18,16 @@
 
 // Решение
 class Worker {
+
     constructor(firstName = '', lastName = '', rate = 0, days = 0) {
+        
         this.firstName = firstName;
         this.lastName = lastName;
         this.rate = rate;
         this.days = days;
     }
 
-    getSalary = () => {
+    getSalary() {
 
         return this.rate * this.days;
     }

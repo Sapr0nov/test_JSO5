@@ -21,7 +21,36 @@
  * - В реализации работы метода getCourse обязательно использовать конструктор Date.
  */
 
- // Решение
+  // Решение
+ class User {
+     #firstName = '';
+     #lastName = '';
+
+     constructor(firstName, lastName) {
+        this.#firstName = firstName;
+        this.#lastName = lastName;
+    }
+
+     getName() {
+
+         return `${this.#firstName} ${this.#lastName}`;
+     }
+ }
+ class Student extends User {
+    #year = 0;
+
+    constructor(firstName, lastName, year) {
+        super(firstName, lastName);
+        this.#year = year;
+    }
+
+    getCourse() {
+        const now = new Date().getFullYear();
+
+        return now - this.#year;
+    }
+ }
+
 
 const student = new Student('Water', 'White', 2015);
 

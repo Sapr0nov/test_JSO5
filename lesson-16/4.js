@@ -14,6 +14,32 @@
 
 // Решение
 
+class Stringer {
+
+    reverse(string) {
+        const result = Array.from(string).reverse().join("");
+
+        return result;
+    }
+
+    uppercaseFirst(string) {
+        const result = string.replace(/\b\w/, function (letter) {
+       
+            return letter.toUpperCase();
+          });
+
+        return result;
+    }
+    
+    uppercaseAll(string) {
+        const result = string.replace(/\b\w/g, function (letter) {
+    
+            return letter.toUpperCase();
+          });
+
+        return result;
+    }
+}
 const stringer = new Stringer();
 
 console.log(stringer.reverse('good morning!')); // !gninrom doog

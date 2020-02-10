@@ -11,7 +11,47 @@
  */
 
 // Решение
+class Worker {
+    #firstName = '';
+    #lastName = '';
+    #days = 0;
+    #rate = 0;
+    
+    constructor(firstName, lastName, rate, days) {
+        this.#rate = rate;
+        this.#days = days;
+        this.#firstName = firstName;
+        this.#lastName = lastName;
+    }
 
+    getName = ()=> {
+
+        return `${this.#firstName} ${this.#lastName}`;
+    }
+
+    setRate(rate) {
+        this.#rate = rate;
+    } 
+    
+    setDays(days) {
+        this.#days = days;
+    } 
+    
+    getRate() {
+
+        return this.#rate;
+    }
+
+    getDays() {
+
+        return this.#days;
+    }
+    
+    getSalary() {
+
+        return this.#rate * this.#days;
+    }
+}
 const worker = new Worker('Walter', 'White', 10, 31);
 
 console.log(worker.getName()); // Walter White
