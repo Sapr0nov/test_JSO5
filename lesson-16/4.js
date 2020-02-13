@@ -17,14 +17,13 @@
 class Stringer {
 
     reverse(string) {
-        const result = Array.from(string).reverse().join("");
+        const result = [...string].reverse().join("");
 
         return result;
     }
 
     uppercaseFirst(string) {
-        const result = string.replace(/\b\w/, function (letter) {
-       
+        const result = string.replace(/\b\w/, (letter)=> {
             return letter.toUpperCase();
           });
 
@@ -32,8 +31,7 @@ class Stringer {
     }
     
     uppercaseAll(string) {
-        const result = string.replace(/\b\w/g, function (letter) {
-    
+        const result = string.replace(/\b\w/g, (letter)=> {
             return letter.toUpperCase();
           });
 

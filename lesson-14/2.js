@@ -15,12 +15,11 @@
  */
 
 function CleanerRobot(initialEnergy = 0 /* Изначальный заряд батареи */) {
-    this.getEnergy = getEnergy;
-    this.setEnergy = setEnergy;
-
     const MAX_ENERGY_CAPACITY = 100; /* Максимальная ёмкость батареи. */
     let energy = null;
-
+    
+    this.getEnergy = getEnergy;
+    this.setEnergy = setEnergy;
     this.setEnergy(initialEnergy);
 
     function getEnergy() {

@@ -25,7 +25,6 @@ class Worker {
     }
 
     getName = ()=> {
-
         return `${this.#firstName} ${this.#lastName}`;
     }
 
@@ -38,17 +37,14 @@ class Worker {
     } 
     
     getRate() {
-
         return this.#rate;
     }
 
     getDays() {
-
         return this.#days;
     }
     
     getSalary() {
-
         return this.#rate * this.#days;
     }
 }

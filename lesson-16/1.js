@@ -19,7 +19,7 @@
 // Решение
 class Worker {
 
-    constructor(firstName = '', lastName = '', rate = 0, days = 0) {
+    constructor(firstName, lastName, rate, days) {
         
         this.firstName = firstName;
         this.lastName = lastName;
@@ -28,7 +28,6 @@ class Worker {
     }
 
     getSalary() {
-
         return this.rate * this.days;
     }
 
