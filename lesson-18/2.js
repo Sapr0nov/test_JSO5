@@ -73,8 +73,8 @@ class DB {
      
       if (typeof(query[key]) === 'object') {
       
-        const min = (query[key].min) ? query[key].min : -Infinity;
-        const max = (query[key].max) ? query[key].max : Infinity;
+        const min = (query[key].min) ? query[key].min : Number.MIN_SAFE_INTEGER;
+        const max = (query[key].max) ? query[key].max : Number.MAX_SAFE_INTEGER;
 
         result.forEach((element,index)=> {
           if (!element[key] || element[key] < min || (element[key] > max)) {
