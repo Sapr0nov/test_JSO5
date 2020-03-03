@@ -16,9 +16,28 @@
 */
 
 // Решение
-const getCustomers = ()=> {
+const getCustomers = (customers, countries)=> {
 
-}
+    const promise = new Promise(function(resolve, reject) {
+        let result = customers;
+        const countriesId = countries.map((country, index) => {
+            return country.id;
+        }); 
+        
+        result.forEach(customer => {
+            let countryId = countriesId.indexOf(customer.id);
+            if (countryId === -1) {
+                reject(`We don't have information about country for this customer: ${customer.name}`);
+            }
+            if (customer.verified) { 
+                Object.assign(customer,countries[countryId]);
+            }
+        });
+        resolve(result);
+    });
+    
+    return promise;
+} 
 
 // Пример использования
 
