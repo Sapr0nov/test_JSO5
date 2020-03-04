@@ -26,9 +26,35 @@ const url = 'https://lab.lectrum.io/geo/api/countries';
 
 // Решение
 class Countries {
-    #url = '';
-    send : await (e)=> {
-        return e;
+
+    constructor(url) {
+        if (typeof url !== 'string') {
+            throw new Error('Param url is not String')
+        }
+        this.api = url;
+    }
+
+    send(size) {
+        if (typeof size !== 'number') {
+            throw new Error('Param size is not Number')
+        }
+
+        const promise = new Promise((resolve, reject) => {
+            const url = this.api + `?size=${size}`;
+
+            get(url, (error, meta, body) => {
+                const statusCode = meta.status;
+
+                if (statusCode === 200) {
+                    const { data } = JSON.parse(body);
+                    resolve(data);
+                }
+
+                reject(`We have error, status code: ${statusCode}`)
+            });
+        });
+
+        return promise;
     }
 }
 
