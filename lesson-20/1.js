@@ -17,6 +17,9 @@
 class Customers {
     #items = [];
     add(obj) {
+        if (!obj.name) {
+            throw new Error('You need to pass an object with the attribute `name`');
+        }
         this.verified = (obj.verified) ? true : false;
         this.#items.push(obj);
     }
