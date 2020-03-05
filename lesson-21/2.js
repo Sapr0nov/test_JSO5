@@ -16,24 +16,22 @@
 */
 
 // Решение
+
 const getCustomers = (customers, countries)=> {
 
     const promise = new Promise(function(resolve, reject) {
-        let result = customers;
-        const countriesId = countries.map((country, index) => {
-            return country.id;
-        }); 
-        
-        result.forEach(customer => {
-            let countryId = countriesId.indexOf(customer.id);
-            if (countryId === -1) {
+
+        customers.forEach(customer => {
+            let country = countries.find((country) => (country.id === customer.id));
+            if (country === void 0) {
                 reject(`We don't have information about country for this customer: ${customer.name}`);
             }
-            if (customer.verified) { 
-                Object.assign(customer,countries[countryId]);
+            if (customer.verified) {
+                Object.assign(customer,country);
             }
         });
-        resolve(result);
+ 
+        resolve(customers);
     });
     
     return promise;
@@ -67,4 +65,3 @@ const countries = [
 getCustomers(customers, countries)
     .then((customers) => console.log(customers))
     .catch(error => console.log(error))
-
