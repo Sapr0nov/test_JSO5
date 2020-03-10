@@ -32,11 +32,6 @@ class DB {
   
         const obj = this.#data.get(id);
         Object.keys(new_params).forEach((key) => {
-            if (obj.hasOwnProperty(key)) {
-                   console.log(`Property ${key} added`);
-                }else{
-                console.log(`Property ${key} updated`);
-                }
             obj[key] = new_params[key];
         })
   
