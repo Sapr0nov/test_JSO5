@@ -18,7 +18,7 @@
 // Решение
 const isCustomerVerified = (obj) => {
 
-    const promise = new Promise(function(resolve, reject) {
+    const promise = new Promise( (resolve, reject) => {
         if (obj.verified) { 
             resolve(true); 
         }

@@ -40,7 +40,7 @@ class Countries {
         }
 
         const promise = new Promise((resolve, reject) => {
-            const url = this.api + `?size=${size}`;
+            const url = `${this.api}?size=${size}`;
 
             get(url, (error, meta, body) => {
                 const statusCode = meta.status;

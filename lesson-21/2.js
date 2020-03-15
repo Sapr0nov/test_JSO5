@@ -20,18 +20,21 @@
 const getCustomers = (customers, countries)=> {
 
     const promise = new Promise(function(resolve, reject) {
-
-        customers.forEach(customer => {
+        
+        const newCustomers = customers.map(customer => {
             let country = countries.find((country) => (country.id === customer.id));
             if (country === void 0) {
                 reject(`We don't have information about country for this customer: ${customer.name}`);
             }
             if (customer.verified) {
-                Object.assign(customer,country);
+                
+                return {...customer, ...country};
             }
+            
+            return customer;        
         });
  
-        resolve(customers);
+        resolve(newCustomers);
     });
     
     return promise;
@@ -61,6 +64,7 @@ const countries = [
         country: 'poland'
     }
 ];
+
 
 getCustomers(customers, countries)
     .then((customers) => console.log(customers))

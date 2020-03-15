@@ -34,17 +34,14 @@ const send = url => {
             if (statusCode === 200) {
                 const { data } = JSON.parse(body);
                 resolve(data);
-
             }
 
             reject(`We have error, status code: ${statusCode}`)
-
         });
 
     });
+
     return promise;
-
-
 }
 
 send(url)
